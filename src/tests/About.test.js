@@ -15,10 +15,10 @@ describe('Testa todo o componente About', () => {
     renderWithRouter(<About />);
     const paragrafos = screen.getAllByText((_content, element) => (
       element.tagName.toLowerCase() === 'p'));
-    // const paragrafo2 = screen.getByText(/One can filter Pokémons by/i);
+      // Ajuda magnifica do Daniel Saraiva me mostrando esta documentaçao:
+      // https://testing-library.com/docs/queries/about/#textmatch
 
     expect(paragrafos.length).toBe(2);
-    // expect(paragrafo2).toBeInTheDocument();
   });
 
   it('Se tem uma imagem usando a source correta', () => {
