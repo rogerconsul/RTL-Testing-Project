@@ -13,11 +13,12 @@ describe('Testa todo o componente About', () => {
 
   it('Se tem dois paragrafos com texto sobre a pokedex', () => {
     renderWithRouter(<About />);
-    const paragrafo1 = screen.getByText(/This application simulates/i);
-    const paragrafo2 = screen.getByText(/One can filter Pokémons by/i);
+    const paragrafos = screen.getAllByText((_content, element) => (
+      element.tagName.toLowerCase() === 'p'));
+    // const paragrafo2 = screen.getByText(/One can filter Pokémons by/i);
 
-    expect(paragrafo1).toBeInTheDocument();
-    expect(paragrafo2).toBeInTheDocument();
+    expect(paragrafos.length).toBe(2);
+    // expect(paragrafo2).toBeInTheDocument();
   });
 
   it('Se tem uma imagem usando a source correta', () => {
